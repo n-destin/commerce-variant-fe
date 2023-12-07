@@ -135,6 +135,24 @@ export interface IUserRequest {
   bankAccount?: string;
   phone?: string;
 }
+
+export interface INewUserRequest {
+  id?: string;
+  name: {
+    familyName?: string,
+    givenName?: string,
+    middleName?: string,
+  },
+  email?: string;
+  password?: string;
+  message?: string;
+}
+
+export interface ILoginRequest {
+  email: string;
+  password: string;
+}
+
 export interface ISliderRequest {
   id?: string;
   title?: string;
