@@ -244,6 +244,7 @@ export interface IChatDTO {
   product: IProduct;
   acceptedPrice?: number;
   owner: IUser;
+  createdAt: string | Date;
   messages?: IMessage[];
 }
 
