@@ -16,3 +16,12 @@ export const createNewUser = async (data: INewUserRequest): Promise<INewUserRequ
 export const login = async (data: ILoginRequest): Promise<string> => {
     return (await httpClient.post(`/auth/signin`, data)).data;
 };
+
+export const forgotPassword = async (data: ILoginRequest): Promise<ILoginRequest> => {
+    return (await httpClient.post(`/auth/forgot-password`, data)).data;
+};
+
+export const resetPassword = async (data: ILoginRequest): Promise<ILoginRequest> => {
+    return (await httpClient.put(`/auth/reset-password?token=${data.token}`, data)).data;
+};
+

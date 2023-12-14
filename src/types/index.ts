@@ -148,9 +148,11 @@ export interface INewUserRequest {
   message?: string;
 }
 
+
 export interface ILoginRequest {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
+  token?: string;
 }
 
 export interface ISliderRequest {
