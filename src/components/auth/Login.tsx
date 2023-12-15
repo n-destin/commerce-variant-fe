@@ -82,6 +82,14 @@ export const Login = () => {
                   register={register("password")}
                 />
               </div>
+              <div className='flex justify-end '>
+                <Link to={"/forgot-password"}>
+                  <p className='px-2 font-[700] text-primary-600 hover:underline text-gray-400 mr-3 '>
+                    Forgot password?
+                  </p>
+                </Link>
+              </div>
+
               <button
                 type='submit'
                 className=' w-full my-7 text-white bg-green-900 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2   focus:outline-none'
