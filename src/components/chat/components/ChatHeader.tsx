@@ -50,7 +50,21 @@ const ChatHeader = ({ chat, isOwner, isLoading }: props) => {
               {chat.product.name}
             </div>
             <div className='font-light text-sm'>
-              {isOwner ? chat.buyer.displayName : chat.owner.displayName}
+              {isOwner
+                ? `${chat.buyer.displayName
+                    .split(" ")[0]
+                    .slice(0, 1)
+                    .toUpperCase()}${chat.buyer.displayName
+                    .split(" ")[1]
+                    .charAt(0)
+                    .toUpperCase()}`
+                : `${chat.owner.displayName
+                    .split(" ")[0]
+                    .slice(0, 1)
+                    .toUpperCase()}${chat.owner.displayName
+                    .split(" ")[1]
+                    .charAt(0)
+                    .toUpperCase()}`}
             </div>
           </div>
         </>

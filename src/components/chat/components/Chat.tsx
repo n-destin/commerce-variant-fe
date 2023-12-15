@@ -1,10 +1,11 @@
 import { FC } from "react";
 import { IChatDTO } from "../../../types";
+import { format, isValid } from "date-fns";
+
 type props = {
   chat: IChatDTO;
 };
 const Chat: FC<props> = ({ chat }) => {
-  // const messagesCount = chat.messages?.length ?? 0;
   return (
     <div className='flex flex-col py-3 px-4 border-b'>
       <div className='flex space-x-3 items-center cursor-pointer'>
@@ -18,8 +19,9 @@ const Chat: FC<props> = ({ chat }) => {
         <div className='chat-detail'>
           <div className='text-sm font-bold text-gray-900'>{chat.product.name}</div>
           <div className='text-sm font-md text-gray-400'>
-            {/* {chat.messages[messagesCount - 1].text ?? ""} */}
-            last message
+            {isValid(new Date(chat?.createdAt))
+              ? format(new Date(chat?.createdAt), "MMMM d, yyyy h:mm a")
+              : "Invalid date"}
           </div>
         </div>
       </div>
