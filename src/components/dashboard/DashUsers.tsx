@@ -11,10 +11,10 @@ export default function DashUsers() {
         const data = await getAllUsers();
         console.log(data);
 
-        if (!Array.isArray(data.users)) {
+        if (!Array.isArray(data)) {
           throw new Error("Data received from API is not an array");
         }
-        setUsers(data.users);
+        setUsers(data);
       } catch (error) {
         console.error("Failed to fetch users:", error);
       }
@@ -40,10 +40,10 @@ export default function DashUsers() {
       try {
         const data = await getAllUsers();
 
-        if (!Array.isArray(data.users)) {
+        if (!Array.isArray(data)) {
           throw new Error("Data received from API is not an array");
         }
-        setUsers(data.users);
+        setUsers(data);
       } catch (error) {
         console.error("Failed to fetch updated users:", error);
       }
@@ -135,7 +135,7 @@ export default function DashUsers() {
                     <td className='relative whitespace-nowrap py-3.5 pl-3 pr-4 text-center text-md font-medium sm:pr-0'>
                       <a
                         href='#'
-                        onClick={() => handleToggleBan(user.id, user.isBanned)}
+                        onClick={() => handleToggleBan(user.id, false)}
                         className={`text-action-color-500 border rounded-full border-r-2 py-1 px-4 hover:text-indigo-900 ${
                           user.isBanned ? "border-red-500" : "border-green-500"
                         }`}
