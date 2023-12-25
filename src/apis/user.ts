@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { IUser, IUserRequest } from "../types/index";
-=======
 import { ILoginRequest, INewUserRequest, IUser, IUserRequest } from "../types";
->>>>>>> 6bc9b13572b80ba157e7a457308b8491382115ef
 import httpClient from "../utils/httpClient";
 
 export const getMyProfile = async (): Promise<IUser> => {
