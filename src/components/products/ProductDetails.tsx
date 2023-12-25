@@ -10,7 +10,7 @@ import OrderForm from "../orders/OrderForm";
 import { useState, useEffect, useContext } from "react";
 import AuthGuard from "../../utils/AuthGuard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper/core";
+import SwiperCore from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 
 import "swiper/swiper-bundle.css";
