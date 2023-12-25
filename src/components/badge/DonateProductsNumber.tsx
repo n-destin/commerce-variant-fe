@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { getDonateProductsNumber } from "../../apis/donation.ts";
+import { getDonateProductsNumber } from "../../apis/donation";
 
 export const DonateProductsNumber: React.FC = () => {
   const [data, setData] = useState<number | null>(null);
