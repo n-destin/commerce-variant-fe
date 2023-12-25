@@ -135,6 +135,26 @@ export interface IUserRequest {
   bankAccount?: string;
   phone?: string;
 }
+
+export interface INewUserRequest {
+  id?: string;
+  name: {
+    familyName?: string,
+    givenName?: string,
+    middleName?: string,
+  },
+  email?: string;
+  password?: string;
+  message?: string;
+}
+
+
+export interface ILoginRequest {
+  email?: string;
+  password?: string;
+  token?: string;
+}
+
 export interface ISliderRequest {
   id?: string;
   title?: string;
@@ -226,6 +246,7 @@ export interface IChatDTO {
   product: IProduct;
   acceptedPrice?: number;
   owner: IUser;
+  createdAt: string | Date;
   messages?: IMessage[];
 }
 

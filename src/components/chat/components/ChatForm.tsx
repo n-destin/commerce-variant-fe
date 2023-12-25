@@ -1,26 +1,27 @@
-import { FC, useContext } from "react";
-import { useForm } from "react-hook-form";
-import {
-  messageSchema,
-  messageSchemaType,
-} from "../../../utils/schemas/chat.schema";
+import React, { FC, useContext, KeyboardEvent } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import TextBox from "../../common/inputs/TextBox";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import { IMessage } from "../../../types";
 import { socket } from "../../../utils/socket";
 import { AuthContext } from "../../../context/Auth";
+import TextBox from "../../common/inputs/TextBox";
+import {
+  messageSchema,
+  messageSchemaType,
+} from "../../../utils/schemas/chat.schema";
 
-interface Props {
+interface ChatFormProps {
   chatId?: string;
 }
 
-const ChatForm: FC<Props> = ({ chatId }) => {
+const ChatForm: FC<ChatFormProps> = ({ chatId }) => {
   const { register, handleSubmit, reset, formState } = useForm<messageSchemaType>({
     resolver: zodResolver(messageSchema),
   });
   const authCtx = useContext(AuthContext);
-  const submit = async (data: messageSchemaType): Promise<IMessage> => {
+
+  const submit: SubmitHandler<messageSchemaType> = async (data) => {
     return new Promise((resolve) => {
       socket.emit(
         "send-message",
@@ -32,6 +33,14 @@ const ChatForm: FC<Props> = ({ chatId }) => {
       );
     });
   };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      handleSubmit(submit)();
+    }
+  };
+
   return (
     <form
       className='flex w-full justify-between items-center'
@@ -40,6 +49,7 @@ const ChatForm: FC<Props> = ({ chatId }) => {
       <TextBox
         type='text'
         register={register("text")}
+        onKeyDown={handleKeyDown}
         customStyles={
           "py-3 px-4 w-full rounded-l-md rounded-r-none border-none ring-0 focus:ring-0 bg-white"
         }

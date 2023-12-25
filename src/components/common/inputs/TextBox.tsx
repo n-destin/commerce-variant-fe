@@ -11,7 +11,9 @@ interface ITextBox {
   value?: string;
   disabled?: boolean;
   onChange?: (value: string) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
+
 const TextBox: FC<ITextBox> = ({
   label,
   type,
@@ -20,6 +22,7 @@ const TextBox: FC<ITextBox> = ({
   value = "",
   disabled = false,
   onChange,
+  onKeyDown,
   placeholder,
   customStyles,
 }) => {
@@ -36,6 +39,7 @@ const TextBox: FC<ITextBox> = ({
           type={type}
           defaultValue={value}
           onChange={(e) => onChange && onChange(e.target.value)}
+          onKeyDown={onKeyDown}
           className={` block min-w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset focus:ring-1 focus:ring-inset ${
             error
               ? `focus:ring-red-500 ring-red-300 placeholder:text-red-400`
@@ -49,4 +53,5 @@ const TextBox: FC<ITextBox> = ({
     </div>
   );
 };
+
 export default TextBox;

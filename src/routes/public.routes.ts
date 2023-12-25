@@ -5,6 +5,9 @@ import ProductDetailsPage from "../pages/public/ProductDetailsPage";
 import RentProductsPage from "../pages/products/RentProductsPage";
 import { IRoute } from "../types/index";
 import DonatedProductsPage from "../pages/products/DonatedProductsPage";
+import { SignupPage } from "../pages/auth/Signup";
+import ForgotPasswordPage from "../pages/auth/ForgotPasswordPage";
+import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
 
 const publicRoutes: IRoute[] = [
   {
@@ -30,6 +33,18 @@ const publicRoutes: IRoute[] = [
   {
     path: "donations",
     element: DonatedProductsPage,
+  },
+  {
+    path: "signup",
+    element: SignupPage,
+  },
+  {
+    path: "forgot-password",
+    element: ForgotPasswordPage,
+  },
+  {
+    path: "reset-password",
+    element: ResetPasswordPage,
   },
 ];
 
