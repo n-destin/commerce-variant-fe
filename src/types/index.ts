@@ -239,6 +239,7 @@ export interface IMessage {
 }
 
 export interface IMessageRequest {
+  _id: string;
   chat: string;
   text: string;
 }
