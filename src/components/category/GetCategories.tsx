@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ICategory } from "../../types";
 
 export const CategoriesList = () => {
+
   const {
     isLoading,
     isError,
@@ -15,6 +16,9 @@ export const CategoriesList = () => {
     queryKey: queryKeys.categoriesInForm,
   });
 
+  console.log(categories, "reached here");
+  
+  
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -35,7 +39,7 @@ export const CategoriesList = () => {
             className='col-span-1 flex rounded-md shadow-sm border bg-gray-100'
           >
             <div className='flex-shrink-0 flex items-center bg-[#003D29] justify-center w-16 text-white text-sm font-medium rounded-l-md'>
-              {category.name.charAt(0)}
+              {category.name?category.name.charAt(0) : ""}
             </div>
             <div className='flex flex-1 items-center justify-between truncate rounded-r-md border-t border-r border-b border-gray-200 bg-white'>
               <div className='flex-1 truncate px-4 py-2 text-sm'>

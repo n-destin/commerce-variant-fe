@@ -12,6 +12,7 @@ export const banUser = async (userId: string): Promise<IUser> => {
 };
 
 export const unbanUser = async (userId: string): Promise<IUser> => {
+  console.log("reached here to unban");
   const response = await httpClient.put(`/all-users/unban/${userId}`);
   return response.data;
 };

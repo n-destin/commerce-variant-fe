@@ -156,6 +156,7 @@ const OrderForm: FC<IOrderForm> = ({ setIsOpen, product }) => {
         label='Submit order'
         isLoading={orderMutation.isPending}
         type='submit'
+        // include onClick
       />
     </form>
   );

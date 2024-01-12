@@ -10,6 +10,7 @@ type IChat = {
   product: IProduct;
 };
 const ChatModel: FC<IChat> = ({ product }) => {
+  console.log(product);
   const { setSelectedChat } = useContext(ChatContext) as IChatContext;
   const { data: chat, isFetched } = useQuery({
     queryKey: [queryKeys.chat, product._id],

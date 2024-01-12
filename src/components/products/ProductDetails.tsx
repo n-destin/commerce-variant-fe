@@ -68,16 +68,16 @@ export const ProductDetails = () => {
                 <div className='md:max-w-[500px]'>
                   <div className=' space-y-2'>
                     <div className='font-medium text-sm text-gray-500 uppercase flex items-center space-x-2'>
-                      {product.category.name}{" "}
+                      {product.category?.name}{" "}
                       {product?.purpose && (
                         <>
                           <ChevronRightIcon className='w-3 h-3 mx-3' />
-                          {product.purpose.name}
+                          {product.purpose?.name}
                         </>
                       )}
                     </div>
                     <div className='font-bold text-2xl capitalize'>
-                      {product.name}
+                      {product?.name}
                     </div>
                     <p className='text-gray-500 text-sm py-6'>
                       {product.description}
@@ -93,7 +93,7 @@ export const ProductDetails = () => {
                         Condition
                       </div>
                       <div className='text-sm uppercase font-medium'>
-                        {product.condition.name}
+                        {product.condition?.name}
                       </div>
                     </div>
                     <div>

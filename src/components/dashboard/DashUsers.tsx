@@ -8,13 +8,12 @@ export default function DashUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const data = await getAllUsers();
-        console.log(data);
-
-        if (!Array.isArray(data)) {
+        const data = (await getAllUsers()).users;
+        if (!Array.isArray(users)) {
           throw new Error("Data received from API is not an array");
         }
         setUsers(data);
+        
       } catch (error) {
         console.error("Failed to fetch users:", error);
       }
@@ -25,8 +24,9 @@ export default function DashUsers() {
 
   const handleToggleBan = async (userId: string, isBanned: boolean) => {
     try {
+      console.log(isBanned);
+      
       const updatedUser = isBanned ? await unbanUser(userId) : await banUser(userId);
-
       setUsers((prevUsers) =>
         prevUsers.map((user) => (user._id === userId ? updatedUser : user)),
       );
@@ -101,7 +101,7 @@ export default function DashUsers() {
                 {users.map((user) => (
                   <tr
                     key={user.id}
-                    className={user.isBanned ? "bg-red-100" : "bg-green-100"}
+                    className={user.isBanned ? "bg-red-100" : "bg-white "}
                   >
                     <td className='whitespace-nowrap  text-sm pl-2 md:pl-4'>
                       <div className='flex items-center'>
@@ -135,7 +135,7 @@ export default function DashUsers() {
                     <td className='relative whitespace-nowrap py-3.5 pl-3 pr-4 text-center text-md font-medium sm:pr-0'>
                       <a
                         href='#'
-                        onClick={() => handleToggleBan(user.id, false)}
+                        onClick={() => handleToggleBan(user.id, user.isBanned ? user.isBanned : false)}
                         className={`text-action-color-500 border rounded-full border-r-2 py-1 px-4 hover:text-indigo-900 ${
                           user.isBanned ? "border-red-500" : "border-green-500"
                         }`}

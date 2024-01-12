@@ -55,7 +55,7 @@ export const ProductsTable = () => {
                       </div>
                     </div>
                   </td>
-                  <td className='py-3 px-6'>{product.category.name}</td>
+                  <td className='py-3 px-6'>{product.category ? product.category.name : ""}</td>
                   <td className='py-3 px-6 font-bold'>{product.price}$</td>
                   <td className='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'>
                     <div className='flex w-32 min-w-full'>

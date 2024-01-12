@@ -165,7 +165,7 @@ const Productcard: FC<Props> = ({
       </Modal>
       {/* End of order return modal */}
 
-      <Link to={order ? "#" : `/product/${_id}`} target={order ? "" : "_blank"}>
+      <Link to={order ? "#" : `/product/${_id}`}> 
         <div className='bg-white overflow-auto shadow-md rounded-md relative'>
           <img className='w-full' src={resizeImage(thumbnail)} alt='' />
           <div className='p-4 space-y-3'>

@@ -56,7 +56,7 @@ const UpdateProductForm: FC<IPRoductForm> = ({ setIsOpen, product }) => {
     defaultValues: {
       name: product.name,
       price: product.price,
-      category: product.category._id,
+      category: product.category ? product.category._id : "",
       condition: product.condition._id,
       description: product.description,
     },
