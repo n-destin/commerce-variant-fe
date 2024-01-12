@@ -58,12 +58,19 @@ const OrderForm: FC<IOrderForm> = ({ setIsOpen, product }) => {
     };
     orderMutation.mutate(formData, {
       onSuccess(paymentUrl: string) {
+        console.log("reached here somewhere" + paymentUrl);
+        if(paymentUrl === "found"){
+          alert("the user alreagy ordered the product")
+          return
+        }
         if (paymentUrl != "created") {
+          console.log("reached here");
           window.location.href = paymentUrl;
           queryClient.invalidateQueries({
             queryKey: queryKeys.orders,
           });
         } else {
+          console.log("here instead");
           queryClient.invalidateQueries({
             queryKey: queryKeys.singleProduct,
           });
@@ -94,13 +101,13 @@ const OrderForm: FC<IOrderForm> = ({ setIsOpen, product }) => {
           <img
             src={product.thumbnail}
             className='w-32 h-32 rounded-md'
-            alt={product.name}
+            alt={product?.name}
           />
         </div>
         <div>
-          <div className='font-bold text-gray-800'>{product.name}</div>
+          <div className='font-bold text-gray-800'>{product?.name}</div>
           <div className='font-semibold uppercase text-gray-500 mb-4'>
-            {product.category.name}
+            {product.category?.name}
           </div>
           {!isDonation && (
             <>

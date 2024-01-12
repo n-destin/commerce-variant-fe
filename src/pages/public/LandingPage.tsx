@@ -27,7 +27,7 @@ const LandingPage = () => {
   return (
     <>
       <Slider />
-      <Container>
+      {/* <Container>
         <ProductsList
           products={topProducts}
           isLoading={isLoading}
@@ -38,13 +38,18 @@ const LandingPage = () => {
             </div>
           }
         />
-      </Container>
+      </Container> */}
       {/* <AdsSlider /> */}
       <Container>
         <ProductsList
           products={data?.other}
           isLoading={isLoading}
           title='Rent or Claim Now'
+          filtersComponent = {
+            <div className='flex gap-2 flex-wrap xs:flex-nowrap'>
+              <Filters setData={setData} />
+            </div>
+          }
         />
       </Container>
     </>

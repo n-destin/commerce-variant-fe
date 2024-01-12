@@ -17,11 +17,11 @@ const columns = [
   },
   {
     name: "Buyer",
-    cell: (row: IOrder) => <div>{row.orderer.displayName}</div>,
+    cell: (row: IOrder) => <div>{row.orderer?.displayName}</div>,
   },
   {
     name: "Seller",
-    cell: (row: IOrder) => <div>{row.product.owner.displayName}</div>,
+    cell: (row: IOrder) => <div>{row.product.owner?.displayName}</div>,
   },
   {
     name: "Amount",
