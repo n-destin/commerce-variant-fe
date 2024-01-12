@@ -23,7 +23,7 @@ const LandingPage = () => {
       setData(queryData);
     }
   }, [queryData]);
-
+  console.log(topProducts);
   return (
     <>
       <Slider />
@@ -32,11 +32,11 @@ const LandingPage = () => {
           products={topProducts}
           isLoading={isLoading}
           title='Trending on sale'
-          filtersComponent={
-            <div className='flex gap-2 flex-wrap xs:flex-nowrap'>
-              <Filters setData={setTopProducs} />
-            </div>
-          }
+          // filtersComponent={
+          //   <div className='flex gap-2 flex-wrap xs:flex-nowrap'>
+          //     <Filters setData={setTopProducs} />
+          //   </div>
+          // }
         />
       </Container> */}
       {/* <AdsSlider /> */}
@@ -47,7 +47,7 @@ const LandingPage = () => {
           title='Rent or Claim Now'
           filtersComponent = {
             <div className='flex gap-2 flex-wrap xs:flex-nowrap'>
-              <Filters setData={setData} />
+              <Filters setData={setTopProducs} />
             </div>
           }
         />

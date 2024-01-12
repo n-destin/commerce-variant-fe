@@ -3,7 +3,7 @@ import { IUser } from "../types";
 
 export const getAllUsers = async (): Promise<IUser[]> => {
   const response = await httpClient.get(`/all-users`);
-  return response.data;
+  return response.data.users;
 };
 
 export const banUser = async (userId: string): Promise<IUser> => {

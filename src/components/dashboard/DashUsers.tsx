@@ -8,12 +8,11 @@ export default function DashUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const data = (await getAllUsers()).users;
+        const data = (await getAllUsers());
         if (!Array.isArray(users)) {
           throw new Error("Data received from API is not an array");
         }
         setUsers(data);
-        
       } catch (error) {
         console.error("Failed to fetch users:", error);
       }
@@ -39,7 +38,6 @@ export default function DashUsers() {
     const fetchUpdatedUsers = async () => {
       try {
         const data = await getAllUsers();
-
         if (!Array.isArray(data)) {
           throw new Error("Data received from API is not an array");
         }
