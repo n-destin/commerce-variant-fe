@@ -12,6 +12,7 @@ const ProcessAuth = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const token = queryParams.get("token") as string;
+  console.log(token);
   const navigate = useNavigate();
   const signIn = useSignIn();
   const { data } = useQuery({
