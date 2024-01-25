@@ -11,8 +11,9 @@ const ProcessAuth = () => {
   const context = useContext(AuthContext);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const token = queryParams.get("token") as string;
-  console.log(token);
+  localStorage.setItem("token", queryParams.get("token") as string)
+  const token = localStorage.getItem("token") as string
+  
   const navigate = useNavigate();
   const signIn = useSignIn();
   const { data } = useQuery({
